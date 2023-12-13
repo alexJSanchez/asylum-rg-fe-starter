@@ -43,7 +43,7 @@ export function App() {
     <Layout>
       <Header
         style={{
-          height: '10vh',
+          padding: '40px 40px',
           display: 'flex',
           alignItems: 'center',
           backgroundColor: primary_accent_color,
