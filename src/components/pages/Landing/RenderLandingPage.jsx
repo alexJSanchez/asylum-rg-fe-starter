@@ -41,7 +41,7 @@ function RenderLandingPage(props) {
           <img
             src={GrantRatesByOfficeImg}
             alt=""
-            style={{ maxWidth: '250px' }}
+            style={{ maxWidth: '300px' }}
           />
           <p>Search Grant Rates By Office</p>
         </div>
@@ -49,7 +49,7 @@ function RenderLandingPage(props) {
           <img
             src={GrantRatesByNationalityImg}
             alt=""
-            style={{ maxWidth: '160px' }}
+            style={{ maxWidth: '180px' }}
           />
           <p>Search Grant Rates By Nationality</p>
         </div>
@@ -57,7 +57,7 @@ function RenderLandingPage(props) {
           <img
             src={GrantRatesOverTimeImg}
             alt=""
-            style={{ maxWidth: '250px' }}
+            style={{ maxWidth: '300px' }}
           />
           <p>Search Grant Rates Over Time</p>
         </div>
