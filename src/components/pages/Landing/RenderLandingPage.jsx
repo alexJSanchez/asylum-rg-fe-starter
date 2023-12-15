@@ -125,6 +125,13 @@ function RenderLandingPage(props) {
             </p>
           </div>
         </div>
+        <Button
+          type="default"
+          style={{ backgroundColor: '#404C4A', color: '#FFFFFF' }}
+          onClick={() => history.push('/graphs')}
+        >
+          Read More
+        </Button>
         <p onClick={() => scrollToTop()} className="back-to-top">
           Back To Top ^
         </p>
