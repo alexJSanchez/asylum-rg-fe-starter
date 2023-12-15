@@ -41,17 +41,17 @@ function RenderLandingPage(props) {
           <img
             src={GrantRatesByOfficeImg}
             alt=""
-            style={{ maxWidth: '300px' }}
+            style={{ maxWidth: '320px' }}
           />
-          <p>Search Grant Rates By Office</p>
+          <p style={{ marginTop: '32px' }}>Search Grant Rates By Office</p>
         </div>
         <div className="graphs-section-container">
           <img
             src={GrantRatesByNationalityImg}
             alt=""
-            style={{ maxWidth: '180px' }}
+            style={{ maxWidth: '200px' }}
           />
-          <p>Search Grant Rates By Nationality</p>
+          <p style={{ marginTop: '23px' }}>Search Grant Rates By Nationality</p>
         </div>
         <div className="graphs-section-container">
           <img
@@ -59,7 +59,7 @@ function RenderLandingPage(props) {
             alt=""
             style={{ maxWidth: '300px' }}
           />
-          <p>Search Grant Rates Over Time</p>
+          <p style={{ marginTop: '30px' }}>Search Grant Rates Over Time</p>
         </div>
       </div>
       {/* <div className="graphs-section"> */}
