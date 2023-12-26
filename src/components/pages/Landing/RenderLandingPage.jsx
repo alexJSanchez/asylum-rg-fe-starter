@@ -11,7 +11,7 @@ import HrfPhoto from '../../../styles/Images/paper-stack.jpg';
 import '../../../styles/RenderLandingPage.less';
 import { Button } from 'antd';
 import { useHistory } from 'react-router-dom';
-import axios from 'axios';
+
 // for the purposes of testing PageNav
 // import PageNav from '../../common/PageNav';
 
