@@ -11,7 +11,6 @@ import HrfPhoto from '../../../styles/Images/paper-stack.jpg';
 import '../../../styles/RenderLandingPage.less';
 import { Button } from 'antd';
 import { useHistory } from 'react-router-dom';
-
 // for the purposes of testing PageNav
 // import PageNav from '../../common/PageNav';
 
@@ -26,7 +25,7 @@ function RenderLandingPage(props) {
   return (
     <div className="main">
       <div className="header">
-        <div className="header-text-container">
+        <div id="header-text-container" className="header-text-container">
           <h1>Asylum Office Grant Rate Tracker</h1>
           <h3>
             The Asylum Office Grant Rate Tracker provides asylum seekers,
