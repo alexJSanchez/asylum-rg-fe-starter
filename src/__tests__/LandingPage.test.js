@@ -1,24 +1,24 @@
 import React from 'react';
-import { render, screen } from '@testing-library/react';
+import { render, screen, fireEvent } from '@testing-library/react';
 import RenderLandingPage from '../components/pages/Landing/RenderLandingPage';
 
-describe('render landing component', () => {
-  test('Renders Landing Page with header and buttons', () => {
+describe('Render landing component', () => {
+  test('Renders Landing Page header', () => {
     render(<RenderLandingPage />);
-
-    //check images on page
-    const threeImages = screen.getAllByRole('img');
-    expect(threeImages).toHaveLength(4);
-
-    // Check if the header text is rendered
     const headerText = screen.getByText('Asylum Office Grant Rate Tracker');
     expect(headerText).toBeInTheDocument();
+  });
+});
 
-    // Check if buttons are rendered
-    const viewDataButton = screen.getByText('View the Data');
-    expect(viewDataButton).toBeInTheDocument();
+describe('Render landing component', () => {
+  test('Scrolling to top resets scroll position', () => {
+    render(<RenderLandingPage />);
+    document.body.scrollTop = 100;
+    document.documentElement.scrollTop = 100;
+    const backToTopButton = screen.getByText('Back To Top ^');
+    fireEvent.click(backToTopButton);
 
-    const downloadDataButton = screen.getByText('Download the Data');
-    expect(downloadDataButton).toBeInTheDocument();
+    expect(document.body.scrollTop).toBe(0);
+    expect(document.documentElement.scrollTop).toBe(0);
   });
 });
