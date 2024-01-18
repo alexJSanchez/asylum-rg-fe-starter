@@ -74,10 +74,11 @@ function GraphWrapper(props) {
                                    -- Mack 
     
     */
+    // these url are used in combine with axios all to make a promiseAll style axios request
+    const url1 = 'https://hrf-asylum-be-b.herokuapp.com/cases/fiscalSummary';
+    const url2 =
+      'https://hrf-asylum-be-b.herokuapp.com/cases/citizenshipSummary';
     if (office === 'all' || !office) {
-      const url1 = 'https://hrf-asylum-be-b.herokuapp.com/cases/fiscalSummary';
-      const url2 =
-        'https://hrf-asylum-be-b.herokuapp.com/cases/citizenshipSummary';
       axios
         .all([axios.get(url1), axios.get(url2)], {
           params: { from: years[0], to: years[1] },
@@ -99,16 +100,12 @@ function GraphWrapper(props) {
               citizenshipResults: data2,
             };
             stateSettingCallback(view, office, [result]);
-            console.log('data1:', data1, 'data2:', data2);
           })
         )
         .catch(error => {
           console.error('Error:', error);
         });
     } else {
-      const url1 = 'https://hrf-asylum-be-b.herokuapp.com/cases/fiscalSummary';
-      const url2 =
-        'https://hrf-asylum-be-b.herokuapp.com/cases/citizenshipSummary';
       axios
         .all([axios.get(url1), axios.get(url2)], {
           params: { from: years[0], to: years[1], office: office },
@@ -130,7 +127,6 @@ function GraphWrapper(props) {
               citizenshipResults: data2,
             };
             stateSettingCallback(view, office, [result]);
-            console.log('data1:', data1, 'data2:', data2);
           })
         )
         .catch(error => {
