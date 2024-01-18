@@ -50,6 +50,8 @@ function GraphWrapper(props) {
         break;
     }
   }
+  // designated url paths for our axios request
+
   function updateStateWithNewData(years, view, office, stateSettingCallback) {
     /*
           _                                                                             _
@@ -72,37 +74,67 @@ function GraphWrapper(props) {
                                    -- Mack 
     
     */
-
     if (office === 'all' || !office) {
+      const url1 = 'https://hrf-asylum-be-b.herokuapp.com/cases/fiscalSummary';
+      const url2 =
+        'https://hrf-asylum-be-b.herokuapp.com/cases/citizenshipSummary';
       axios
-        .get('https://hrf-asylum-be-b.herokuapp.com/cases/citizenshipSummary', {
-          // mock URL, can be simply replaced by `${Real_Production_URL}/summary` in prod!
-          params: {
-            from: years[0],
-            to: years[1],
-          },
+        .all([axios.get(url1), axios.get(url2)], {
+          params: { from: years[0], to: years[1] },
         })
-        .then(result => {
-          stateSettingCallback(view, office, result.data); // <-- `test_data` here can be simply replaced by `result.data` in prod!
-        })
-        .catch(err => {
-          console.error(err);
+        .then(
+          axios.spread((response1, response2) => {
+            // Handle the results of both requests here
+
+            const data1 = response1.data;
+            const data2 = response2.data;
+            const result = {
+              granted: data1.granted,
+              adminClosed: data1.adminClosed,
+              denied: data1.denied,
+              closedNacaraGrant: data1.closedNacaraGrant,
+              asylumTerminated: data1.asylumTerminated,
+              totalCases: data1.totalCases,
+              yearResults: data1.yearResults,
+              citizenshipResults: data2,
+            };
+            stateSettingCallback(view, office, [result]);
+            console.log('data1:', data1, 'data2:', data2);
+          })
+        )
+        .catch(error => {
+          console.error('Error:', error);
         });
     } else {
+      const url1 = 'https://hrf-asylum-be-b.herokuapp.com/cases/fiscalSummary';
+      const url2 =
+        'https://hrf-asylum-be-b.herokuapp.com/cases/citizenshipSummary';
       axios
-        .get('https://hrf-asylum-be-b.herokuapp.com/cases/fiscalSummary`', {
-          // mock URL, can be simply replaced by `${Real_Production_URL}/summary` in prod!
-          params: {
-            from: years[0],
-            to: years[1],
-            office: office,
-          },
+        .all([axios.get(url1), axios.get(url2)], {
+          params: { from: years[0], to: years[1], office: office },
         })
-        .then(result => {
-          stateSettingCallback(view, office, result.data); // <-- `test_data` here can be simply replaced by `result.data` in prod!
-        })
-        .catch(err => {
-          console.error(err);
+        .then(
+          axios.spread((response1, response2) => {
+            // Handle the results of both requests here
+
+            const data1 = response1.data;
+            const data2 = response2.data;
+            const result = {
+              granted: data1.granted,
+              adminClosed: data1.adminClosed,
+              denied: data1.denied,
+              closedNacaraGrant: data1.closedNacaraGrant,
+              asylumTerminated: data1.asylumTerminated,
+              totalCases: data1.totalCases,
+              yearResults: data1.yearResults,
+              citizenshipResults: data2,
+            };
+            stateSettingCallback(view, office, [result]);
+            console.log('data1:', data1, 'data2:', data2);
+          })
+        )
+        .catch(error => {
+          console.error('Error:', error);
         });
     }
   }
