@@ -87,17 +87,15 @@ function GraphWrapper(props) {
           axios.spread((response1, response2) => {
             // Handle the results of both requests here
 
-            const data1 = response1.data;
-            const data2 = response2.data;
             const result = {
-              granted: data1.granted,
-              adminClosed: data1.adminClosed,
-              denied: data1.denied,
-              closedNacaraGrant: data1.closedNacaraGrant,
-              asylumTerminated: data1.asylumTerminated,
-              totalCases: data1.totalCases,
-              yearResults: data1.yearResults,
-              citizenshipResults: data2,
+              granted: response1.data.granted,
+              adminClosed: response1.data.adminClosed,
+              denied: response1.data.denied,
+              closedNacaraGrant: response1.data.closedNacaraGrant,
+              asylumTerminated: response1.data.asylumTerminated,
+              totalCases: response1.data.totalCases,
+              yearResults: response1.data.yearResults,
+              citizenshipResults: response2.data,
             };
             stateSettingCallback(view, office, [result]);
           })
@@ -114,17 +112,15 @@ function GraphWrapper(props) {
           axios.spread((response1, response2) => {
             // Handle the results of both requests here
 
-            const data1 = response1.data;
-            const data2 = response2.data;
             const result = {
-              granted: data1.granted,
-              adminClosed: data1.adminClosed,
-              denied: data1.denied,
-              closedNacaraGrant: data1.closedNacaraGrant,
-              asylumTerminated: data1.asylumTerminated,
-              totalCases: data1.totalCases,
-              yearResults: data1.yearResults,
-              citizenshipResults: data2,
+              granted: response1.data.granted,
+              adminClosed: response1.data.adminClosed,
+              denied: response1.data.denied,
+              closedNacaraGrant: response1.data.closedNacaraGrant,
+              asylumTerminated: response1.data.asylumTerminated,
+              totalCases: response1.data.totalCases,
+              yearResults: response1.data.yearResults,
+              citizenshipResults: response2.data,
             };
             stateSettingCallback(view, office, [result]);
           })
