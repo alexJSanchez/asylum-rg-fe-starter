@@ -8,9 +8,10 @@ const LoginButton = () => {
     <button
       style={{
         paddingLeft: '75px',
+        fontSize: '25px',
         backgroundColor: 'transparent',
         borderStyle: 'none',
-        color: '#E2F0F7',
+        color: 'emerald',
       }}
       onClick={() => loginWithRedirect()}
     >
