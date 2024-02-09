@@ -5,7 +5,7 @@ import Logo from '../../styles/Images/WhiteLogo.png';
 import { colors } from '../../styles/data_vis_colors';
 
 // import login button
-import LoginButton from '../common/LoginButton';
+import AuthenticationButton from '../common/AuthButton';
 
 const { primary_accent_color } = colors;
 
@@ -31,7 +31,7 @@ function HeaderContent() {
         <Link to="/graphs" style={{ color: '#E2F0F7' }}>
           Graphs
         </Link>
-        <LoginButton />
+        <AuthenticationButton />
       </div>
     </div>
   );

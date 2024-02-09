@@ -11,7 +11,7 @@ const LoginButton = () => {
         fontSize: '25px',
         backgroundColor: 'transparent',
         borderStyle: 'none',
-        color: 'emerald',
+        color: '#50C878',
       }}
       onClick={() => loginWithRedirect()}
     >
