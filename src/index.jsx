@@ -7,6 +7,9 @@ import {
   Switch,
 } from 'react-router-dom';
 
+// import auth0 react
+import { Auth0Provider } from '@auth0/auth0-react';
+
 import 'antd/dist/antd.less';
 import { NotFoundPage } from './components/pages/NotFound';
 import { LandingPage } from './components/pages/Landing';
@@ -30,7 +33,15 @@ ReactDOM.render(
   <Router>
     <Provider store={store}>
       <React.StrictMode>
-        <App />
+        <Auth0Provider
+          domain="{yourDomain}"
+          clientId="{yourClientId}"
+          authorizationParams={{
+            redirect_uri: window.location.origin,
+          }}
+        >
+          <App />
+        </Auth0Provider>
       </React.StrictMode>
     </Provider>
   </Router>,
