@@ -12,8 +12,14 @@ const Profile = () => {
   console.log(user);
   return (
     isAuthenticated && (
-      <div style={{ display: 'flex', justifyContent: 'center' }}>
-        <img src={user.picture} alt={user.name} />
+      <div
+        style={{ display: 'flex', justifyContent: 'center', padding: '20px' }}
+      >
+        <img
+          style={{ paddingRight: '20px' }}
+          src={user.picture}
+          alt={user.name}
+        />
         <div style={{ display: 'flex', flexDirection: 'column' }}>
           <h2>{user.nickname}</h2>
           <p>Email:{user.email}</p>
