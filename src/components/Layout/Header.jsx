@@ -28,13 +28,22 @@ function HeaderContent() {
         </a>
       </div>
       <div>
-        <Link to="/" style={{ color: '#E2F0F7', paddingRight: '75px' }}>
+        {isAuthenticated ? (
+          <Link
+            to="/profile"
+            style={{ color: '#E2F0F7', paddingRight: '40px' }}
+          >
+            Profile
+          </Link>
+        ) : (
+          <div></div>
+        )}
+        <Link to="/" style={{ color: '#E2F0F7', paddingRight: '40px' }}>
           Home
         </Link>
         <Link to="/graphs" style={{ color: '#E2F0F7' }}>
           Graphs
         </Link>
-
         <AuthenticationButton />
       </div>
     </div>
