@@ -36,7 +36,7 @@ function HeaderContent() {
             Profile
           </Link>
         ) : (
-          <div></div>
+          <></>
         )}
         <Link to="/" style={{ color: '#E2F0F7', paddingRight: '40px' }}>
           Home

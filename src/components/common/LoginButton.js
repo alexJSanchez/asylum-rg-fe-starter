@@ -7,7 +7,7 @@ const LoginButton = () => {
   return (
     <button
       style={{
-        paddingLeft: '75px',
+        paddingLeft: '40px',
         fontSize: '25px',
         backgroundColor: 'transparent',
         borderStyle: 'none',
